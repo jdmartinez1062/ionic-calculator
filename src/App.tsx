@@ -4,6 +4,7 @@ import {
   IonIcon,
   IonLabel,
   IonRouterOutlet,
+  IonSplitPane,
   IonTabBar,
   IonTabButton,
   IonTabs,
@@ -30,43 +31,31 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-import { book, calculator, home } from 'ionicons/icons';
+// import { book, calculator, home } from 'ionicons/icons';
 import Calculator from './pages/Calculator';
 import About from './pages/About';
-
+import Menu from './components/Menu';
+import NavBar from './components/NavBar';
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/home">
+      <IonSplitPane contentId="main">
+        <Menu />
+        <IonRouterOutlet id="main">
+          <Route exact={true} path="/home">
             <Home />
           </Route>
-          <Route exact path="/calculator">
+          <Route exact={true} path="/calculator">
             <Calculator />
           </Route>
-          <Route exact path="/about">
+          <Route exact={true} path="/about">
             <About />
           </Route>
-          <Route exact path="/">
+          <Route exact={true} path="/">
             <Redirect to="/home" />
           </Route>
         </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="home" href="/home">
-            <IonIcon icon={home}></IonIcon>
-            <IonLabel>Home</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="calculator" href="/calculator">
-            <IonIcon icon={calculator}></IonIcon>
-            <IonLabel>Calculator</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="about" href="/about">
-            <IonIcon icon={book}></IonIcon>
-            <IonLabel>About</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
+      </IonSplitPane>
     </IonReactRouter>
   </IonApp>
 );

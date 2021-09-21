@@ -1,9 +1,12 @@
 import { IonContent, IonPage } from '@ionic/react';
 import React from 'react';
+import NavBar from '../components/NavBar';
+
 const Home: React.FC = () => (
   <>
     <IonPage>
-      <IonContent>
+      <NavBar title="Home" />
+      <IonContent fullscreen>
         <h3>Welcome to our page</h3>
         <p>
           {' '}

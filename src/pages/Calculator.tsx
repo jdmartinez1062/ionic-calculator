@@ -2,6 +2,7 @@ import { IonContent, IonPage } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import ButtonPanel from '../components/ButtonPanel';
 import Display from '../components/Display';
+import NavBar from '../components/NavBar';
 import calculate from '../logic/calculate';
 
 const Calculator: React.FC = () => {
@@ -21,7 +22,8 @@ const Calculator: React.FC = () => {
   return (
     <>
       <IonPage>
-        <IonContent>
+        <NavBar title="Calculator" />
+        <IonContent fullscreen>
           <Display total={total} next={next} operation={operation} />
           <ButtonPanel onButtonName={setButtonName} />
         </IonContent>
